@@ -1,14 +1,13 @@
 import { config } from "dotenv";
 config();
-const { NODE_RICE_APP_PORT, NODE_RICE_APP_HOST, NODE_RICE_APP_URI } =
-  process.env;
+const { NODE_APP_PORT, NODE_APP_HOST, NODE_APP_URI } = process.env;
 
 export default {
   env: "development",
-  db: `mongodb+srv://unclerice:023657@cluster0.q7mqbnf.mongodb.net/CompanyDB?retryWrites=true&w=majority`,
-  port: NODE_RICE_APP_PORT,
-  app_host: NODE_RICE_APP_HOST,
-  app_uri: NODE_RICE_APP_URI,
+  db: `mongodb+srv://phuoc153258:Outisde2@cluster0.hwttyjb.mongodb.net/f8_education_dev`,
+  port: NODE_APP_PORT,
+  app_host: NODE_APP_HOST,
+  app_uri: NODE_APP_URI,
   jwt: {
     secret: "2b06c243-4e10-427a-ba57-7de64e11deee",
     expiresIn: "1y",
@@ -18,15 +17,15 @@ export default {
     root: "minhrice.dev@gmail.com",
     key: "ausl qjfp zukd wqkj",
     secret: "8e244dcc-8b42-4ae9-8d2b-cec49aa1ec5c",
-    expiresIn: "30m",
+    expiresIn: "1y",
   },
   otp: {
     secret: "16c2ae54-4f41-4641-b922-bdf979fe063c",
-    expiresIn: "30m",
+    expiresIn: "1y",
   },
   oauth2Jwt: {
     secret: "e342cc8d-e3d0-4b8f-be36-e3e189ca3de6",
-    expiresIn: "1m",
+    expiresIn: "1y",
   },
   sms: {
     sid: "AC01078c94d9b3781bdf184750450fcbd6",

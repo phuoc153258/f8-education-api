@@ -1,9 +1,14 @@
 export const isBlank = (data: string) => !data || data === "";
+
 export const isArrayEmpty = (data: any[]) => !data || data.length === 0;
+
 export const isBeforeDate = (left: Date, right: Date) =>
   left && right && left.getTime() < right.getTime();
+
 export const isInteger = (value: any) => Number.isInteger(value);
+
 export const isBoolean = require("node-boolify").isBoolean;
+
 export const isFloat = (value: any) =>
   Number(value) === value && value % 1 !== 0;
 export function isDate(_date) {
@@ -19,10 +24,6 @@ export function isDate(_date) {
   return false;
 }
 
-/**
- * Equal today
- * @param string date
- */
 export function isGreaterThanToday(mydate) {
   try {
     var q = new Date();
@@ -39,33 +40,38 @@ export function isGreaterThanToday(mydate) {
     return true;
   }
 }
-export function validURL (str) {
-  var pattern = new RegExp('^(https?:\\/\\/)?'+
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+
-    '(\\#[-a-z\\d_]*)?$','i');
+
+export function validURL(str) {
+  var pattern = new RegExp(
+    "^(https?:\\/\\/)?" +
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
+      "((\\d{1,3}\\.){3}\\d{1,3}))" +
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" +
+      "(\\?[;&a-z\\d%_.~+=-]*)?" +
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  );
   return !!pattern.test(str);
 }
 
-export const validateProfileDate = (date): boolean =>{
-  let dateformat = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+export const validateProfileDate = (date): boolean => {
+  let dateformat =
+    /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
   return dateformat.test(date);
-}
+};
 
 export const isPhoneVietNam = (phone: any): boolean => {
   const PHONE_PATTERN = /^(09|01|07|08|03|05|[1|2|5|6|8|9])+([0-9]{8})$/;
   return PHONE_PATTERN.test(phone);
-}
+};
 
 export function isEmailValid(email): boolean {
   return /\S+@\S+\.\S+/.test(email);
 }
 
 export function checkURL(url) {
-  if (typeof url !== 'string') return false;
-  return (url.match(/\.(jpg|jpeg|gif|png)$/) != null);
+  if (typeof url !== "string") return false;
+  return url.match(/\.(jpg|jpeg|gif|png)$/) != null;
 }
 
 const setStringDate = (date: Date) => {
@@ -78,6 +84,7 @@ const setStringDate = (date: Date) => {
 };
 
 const serverTimeZoneOffset = new Date().getTimezoneOffset() / 60;
+
 const changeOffset = serverTimeZoneOffset + 7; // VN timezone
 
 export const parseToLocalTime = (dateTime) => {
